@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/TUGAS KULIAH/Semester 4/PABD/AplikasiTopUp/app/src/main/res/layout/activity_add.xml" value="0.3625" />
+        <entry key="..\:/TUGAS KULIAH/Semester 4/PABD/AplikasiTopUp/app/src/main/res/layout/activity_adminpanel.xml" value="0.33" />
+        <entry key="..\:/TUGAS KULIAH/Semester 4/PABD/AplikasiTopUp/app/src/main/res/layout/activity_bayar.xml" value="0.358695652173913" />
+        <entry key="..\:/TUGAS KULIAH/Semester 4/PABD/AplikasiTopUp/app/src/main/res/layout/activity_beranda.xml" value="0.358695652173913" />
+        <entry key="..\:/TUGAS KULIAH/Semester 4/PABD/AplikasiTopUp/app/src/main/res/layout/activity_keranjang.xml" value="0.3625" />
+        <entry key="..\:/TUGAS KULIAH/Semester 4/PABD/AplikasiTopUp/app/src/main/res/layout/activity_lihat_data.xml" value="0.3625" />
+        <entry key="..\:/TUGAS KULIAH/Semester 4/PABD/AplikasiTopUp/app/src/main/res/layout/activity_login.xml" value="0.358695652173913" />
+        <entry key="..\:/TUGAS KULIAH/Semester 4/PABD/AplikasiTopUp/app/src/main/res/layout/activity_main.xml" value="0.3625" />
+        <entry key="..\:/TUGAS KULIAH/Semester 4/PABD/AplikasiTopUp/app/src/main/res/layout/activity_pilihproduk.xml" value="0.358695652173913" />
+        <entry key="..\:/TUGAS KULIAH/Semester 4/PABD/AplikasiTopUp/app/src/main/res/layout/activity_pilihprodukml.xml" value="0.358695652173913" />
+        <entry key="..\:/TUGAS KULIAH/Semester 4/PABD/AplikasiTopUp/app/src/main/res/layout/activity_pilihprodukpubg.xml" value="0.358695652173913" />
+        <entry key="..\:/TUGAS KULIAH/Semester 4/PABD/AplikasiTopUp/app/src/main/res/layout/row_produk.xml" value="0.33" />
+        <entry key="..\:/TUGAS KULIAH/Semester 4/PABD/AplikasiTopUp/app/src/main/res/menu/main_menu.xml" value="0.3625" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

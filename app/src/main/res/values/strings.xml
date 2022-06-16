@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Ace Top Up</string>
+    <string name="tEmail">Username</string>
+    <string name="tPassword">Password</string>
+    <string name="btSignin">SIGN IN</string>
+    <string name="textpilih">Silahkan Pilih Produk</string>
+    <string name="prodml">Silahkan pilih jumlah diamond.</string>
+    <string name="prod1ml">Beli Produk 1</string>
+    <string name="prod2ml">Beli Produk 2</string>
+    <string name="prod1pubg">Beli Produk 1</string>
+    <string name="prod2pubg">Beli Produk 2</string>
+    <string name="mskbrg">Masukkan Nama Barang</string>
+    <string name="hrgbrg">Masukkan Harga Barang</string>
+</resources>

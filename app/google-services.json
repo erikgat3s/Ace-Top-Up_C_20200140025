@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1052556000998",
+    "project_id": "aplikasitopup",
+    "storage_bucket": "aplikasitopup.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1052556000998:android:3af9856d065d32f0b14527",
+        "android_client_info": {
+          "package_name": "com.example.aplikasitopup"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1052556000998-91vfm5vgjq76lg3rml7uge0e11kjjuro.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDV2Q7iMvLB6LHIDMT7cuNvRYMNjvdn6Wc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1052556000998-91vfm5vgjq76lg3rml7uge0e11kjjuro.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
