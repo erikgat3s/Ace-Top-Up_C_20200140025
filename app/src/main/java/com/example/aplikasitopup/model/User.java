@@ -1,12 +1,16 @@
 package com.example.aplikasitopup.model;
 
 public class User {
-    private String id,item,harga;
+    private String id,item,harga, diamond, qty, userid, hargapesan;
 
     public User(String item, String harga){
         this.item = item;
-        this.harga = item;
+        this.harga = harga;
+
     }
+
+
+
     public String getId(){
         return id;
     }
@@ -25,5 +29,7 @@ public class User {
     public void setHarga(String harga) {
         this.harga = harga;
     }
+
+
 
 }

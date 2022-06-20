@@ -15,11 +15,12 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 import com.example.aplikasitopup.adapter.UserAdapter;
+import com.example.aplikasitopup.adapter.UserAdapter1;
 import com.example.aplikasitopup.model.User;
+import com.example.aplikasitopup.model.User1;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.firebase.database.annotations.NotNull;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -27,59 +28,64 @@ import com.google.firebase.firestore.QuerySnapshot;
 import java.util.ArrayList;
 import java.util.List;
 
-public class adminpanel extends AppCompatActivity {
-
-    /**
-     * mendefinisikan variabel yang akan dipakai
-     */
+public class Keranjang extends AppCompatActivity {
     private RecyclerView recyclerView;
-    private FloatingActionButton btnAdd;
+    FloatingActionButton fab;
 
-    /**
-     * inisialisasi object firebase firestore
-     * untuk menghubungkan dengan firestore
-     */
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-    private List<User> list = new ArrayList<>();
-    private UserAdapter userAdapter;
+    private List<User1> list = new ArrayList<>();
+    private UserAdapter1 userAdapter1;
     private ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_adminpanel);
+        setContentView(R.layout.activity_keranjang);
         recyclerView = findViewById(R.id.recycler_view);
-        btnAdd = findViewById(R.id.btn_add);
+        fab = findViewById(R.id.btn_add);
 
-        progressDialog = new ProgressDialog(adminpanel.this);
+        progressDialog = new ProgressDialog(Keranjang.this);
         progressDialog.setTitle("Loading");
         progressDialog.setMessage("Mengambil data...");
-        userAdapter = new UserAdapter(getApplicationContext(), list);
-        userAdapter.setDialog(new UserAdapter.Dialog() {
+        userAdapter1 = new UserAdapter1(getApplicationContext(), list);
+        userAdapter1.setDialog1(new UserAdapter1.Dialog() {
             @Override
-            public void onClick(int pos) {
-                final CharSequence[] dialogItem = {"Edit", "Hapus"};
-                AlertDialog.Builder dialog = new AlertDialog.Builder(adminpanel.this);
+            public void onClick(final int pos) {
+                final CharSequence[] dialogItem = {"Edit", "Hapus", "Lihat Data", "Checkout"};
+                AlertDialog.Builder dialog = new AlertDialog.Builder(Keranjang.this);
                 dialog.setItems(dialogItem, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         switch (i) {
-                            /**
-                             * Melemparkan data ke class berikutnya
-                             */
                             case 0:
-                                Intent intent = new Intent(getApplicationContext(), AddActivity.class);
-                                intent.putExtra("id", list.get(pos).getId());
-                                intent.putExtra("item", list.get(pos).getItem());
-                                intent.putExtra("harga", list.get(pos).getHarga());
+                                Intent intent = new Intent(getApplicationContext(), activity_pilihprodukml.class);
+                                intent.putExtra("id", list.get(pos).getId1());
+                                intent.putExtra("userid", list.get(pos).getUserid());
                                 startActivity(intent);
                                 break;
                             case 1:
-                                /**
-                                 * memanggil class delete data
-                                 */
-                                deleteData(list.get(pos).getId());
+                                deleteData(list.get(pos).getId1());
+                                break;
+
+                            case 2:
+                                Intent intent1 = new Intent(getApplicationContext(), LihatData.class);
+                                intent1.putExtra("id", list.get(pos).getId1());
+                                intent1.putExtra("userid", list.get(pos).getUserid());
+                                intent1.putExtra("diamond", list.get(pos).getDiamond());
+                                intent1.putExtra("qty", list.get(pos).getQty());
+                                intent1.putExtra("hargapesan", list.get(pos).getHargapesan());
+                                startActivity(intent1);
+                                break;
+                            case 3:
+                                Intent intent2 = new Intent(getApplicationContext(), activity_bayar.class);
+                                intent2.putExtra("id", list.get(pos).getId1());
+                                intent2.putExtra("userid", list.get(pos).getUserid());
+                                intent2.putExtra("diamond", list.get(pos).getDiamond());
+                                intent2.putExtra("qty", list.get(pos).getQty());
+                                intent2.putExtra("hargapesan", list.get(pos).getHargapesan());
+                                deleteData(list.get(pos).getId1());
+                                startActivity(intent2);
                                 break;
                         }
                     }
@@ -91,17 +97,13 @@ public class adminpanel extends AppCompatActivity {
         RecyclerView.ItemDecoration decoration = new DividerItemDecoration(getApplicationContext(), DividerItemDecoration.VERTICAL);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.addItemDecoration(decoration);
-        recyclerView.setAdapter(userAdapter);
+        recyclerView.setAdapter(userAdapter1);
 
-        btnAdd.setOnClickListener(view -> {
-            startActivity(new Intent(getApplicationContext(), AddActivity.class));
+        fab.setOnClickListener(v -> {
+            startActivity(new Intent(getApplicationContext(), activity_pilihprodukml.class));
         });
     }
 
-    /**
-     * method untuk menampilkan data agar di tampilkan
-     * pada saat aplikasi pertama kali di running
-     */
 
     @Override
     protected void onStart(){
@@ -112,27 +114,19 @@ public class adminpanel extends AppCompatActivity {
 
     private void getData() {
         progressDialog.show();
-        /**
-         * Mengambil data dari firestore
-         */
-        db.collection("users").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+
+        db.collection("pesanan").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @SuppressLint("NotifyDataSetChanged")
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 list.clear();
                 if (task.isSuccessful()){
-                    /**
-                     * code ini mengambil data dari collection
-                     */
                     for (QueryDocumentSnapshot document : task.getResult()){
-                        /**
-                         * Data apa saya yang ingin di ambil dari collection
-                         */
-                        User user = new User(document.getString("item"), document.getString("harga"));
-                        user.setId(document.getId());
+                        User1 user = new User1(document.getString("userid"), document.getString("diamond"), document.getString("qty"), document.getString("hargapesan"));
+                        user.setId1(document.getId());
                         list.add(user);
                     }
-                    userAdapter.notifyDataSetChanged();
+                    userAdapter1.notifyDataSetChanged();
                 }else {
                     Toast.makeText(getApplicationContext(), "Data gagal di ambil!", Toast.LENGTH_SHORT).show();
                 }
@@ -141,12 +135,10 @@ public class adminpanel extends AppCompatActivity {
         });
     }
 
-    /**
-     * method untuk menghapus data
-     */
+
     private void deleteData(String id){
         progressDialog.show();
-        db.collection("users").document(id).delete().addOnCompleteListener(new OnCompleteListener<Void>() {
+        db.collection("pesanan").document(id).delete().addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (!task.isSuccessful()){

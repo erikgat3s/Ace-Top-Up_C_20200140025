@@ -9,9 +9,9 @@ import android.widget.TextView;
 
 import com.google.firebase.firestore.FirebaseFirestore;
 
-public class LihatData extends AppCompatActivity {
+public class DetailPesanan extends AppCompatActivity {
 
-    private TextView item,harga, berapa, totalharga;
+    private TextView userid,diamond,qty,hargapesan;
 
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private ProgressDialog progressDialog;
@@ -21,22 +21,21 @@ public class LihatData extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lihat_data);
 
-        item = findViewById(R.id.txId);
-        harga = findViewById(R.id.txDm);
-        berapa = findViewById(R.id.txBeli);
-        totalharga = findViewById(R.id.txTotalhrg);
+        userid = findViewById(R.id.userid);
+        diamond = findViewById(R.id.diamond);
+        qty = findViewById(R.id.qty);
+        hargapesan = findViewById(R.id.adHarga);
 
-
-        progressDialog = new ProgressDialog(LihatData.this);
+        progressDialog = new ProgressDialog(DetailPesanan.this);
         progressDialog.setTitle("Loading");
         progressDialog.setMessage("Mengambil data...");
 
         Intent intent = getIntent();
         if (intent != null){
-            item.setText(intent.getStringExtra("userid"));
-            harga.setText(intent.getStringExtra("diamond"));
-            berapa.setText(intent.getStringExtra("qty"));
-            totalharga.setText(intent.getStringExtra("hargapesan"));
+            userid.setText(intent.getStringExtra("userid"));
+            diamond.setText(intent.getStringExtra("diamond"));
+            qty.setText(intent.getStringExtra("qty"));
+            hargapesan.setText(intent.getStringExtra("hargapesan"));
         }
     }
 }

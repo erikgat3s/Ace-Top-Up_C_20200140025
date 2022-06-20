@@ -1,6 +1,5 @@
 package com.example.aplikasitopup.adapter;
 
-import android.app.Dialog;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,6 +19,9 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.MyViewHolder> 
     private Context context;
     private List<User> list;
     private Dialog dialog;
+
+
+
 
     public interface Dialog{
         void onClick(int pos);
@@ -45,6 +47,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.MyViewHolder> 
     public void onBindViewHolder(@NonNull UserAdapter.MyViewHolder holder, int position) {
         holder.item.setText(list.get(position).getItem());
         holder.harga.setText(list.get(position).getHarga());
+
     }
 
     @Override
@@ -52,12 +55,14 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.MyViewHolder> 
         return list.size();
     }
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        TextView item, harga;
+        TextView  item,harga;
 
         public MyViewHolder(@NonNull View itemView){
             super(itemView);
-            item = itemView.findViewById(R.id.itm);
-            harga = itemView.findViewById(R.id.hrg);
+            item = itemView.findViewById(R.id.txId);
+            harga = itemView.findViewById(R.id.adHarga);
+
+
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -68,5 +73,8 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.MyViewHolder> 
             });
         }
     }
+
+
+
 
 }

@@ -4,9 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFC107"
-    android:backgroundTint="#FFC107"
-    tools:context=".LihatData">
+    tools:context=".DetailPesanan">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,57 +15,53 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="User ID"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/txId"
+            android:id="@+id/userid"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="User ID" />
+            android:text="Nama Item" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Harga"
-            android:textColor="@color/white"
+            android:text="Nama Item"
+            android:textColor="@color/black"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/txDm"
+            android:id="@+id/diamond"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Data Harga"
-            android:textColor="#000000" />
+            android:text="Data Diamond" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Total Beli"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/black"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/txBeli"
+            android:id="@+id/qty"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Total"
-            android:textColor="#000000" />
+            android:text="Total Beli Diamond" />
 
         <TextView
-            android:id="@+id/textView15"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Harga"
-            android:textColor="#FFFFFF"
-            android:textStyle="bold" />
+            android:textColor="@color/black"
+            android:textStyle="bold"/>
 
         <TextView
-            android:id="@+id/txTotalhrg"
+            android:id="@+id/adHarga"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Total Harga"
-            android:textColor="#000000" />
+            android:text="Data Harga"/>
 
     </LinearLayout>
 

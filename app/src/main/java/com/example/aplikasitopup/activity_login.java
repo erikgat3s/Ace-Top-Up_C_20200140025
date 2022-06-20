@@ -31,8 +31,8 @@ public class activity_login extends AppCompatActivity {
             user = edUser.getText().toString();
             pass = edPass.getText().toString();
 
-            String name = "seller1";
-            String pass = "yogya123";
+            String name = "123";
+            String pass = "123";
 
             if(user.isEmpty() || pass.isEmpty()){
                 Toast t = Toast.makeText(getApplicationContext(),

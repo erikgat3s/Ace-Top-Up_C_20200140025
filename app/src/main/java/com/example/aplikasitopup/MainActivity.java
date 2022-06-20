@@ -9,12 +9,26 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 public class MainActivity extends AppCompatActivity {
+
+    FloatingActionButton fabcart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        fabcart = findViewById(R.id.fabcart);
+
+        fabcart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getApplicationContext(), Keranjang.class);
+                startActivity(i);
+            }
+        });
 
         View imgview = findViewById(R.id.moleview);
         imgview.setOnClickListener(new View.OnClickListener() {
@@ -25,14 +39,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        View imgpubg = findViewById(R.id.pubgview);
-        imgpubg.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(MainActivity.this,activity_pilihprodukpubg.class);
-                startActivity(i);
-            }
-        });
+
 
     }
 
@@ -53,4 +60,5 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-}
+    }
+

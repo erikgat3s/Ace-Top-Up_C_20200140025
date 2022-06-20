@@ -34,7 +34,7 @@ public class AddActivity extends AppCompatActivity {
         setContentView(R.layout.activity_add);
         edtNama = findViewById(R.id.edtNamabrg);
         edtHarga = findViewById(R.id.edtHargabarang);
-        btnSave = findViewById(R.id.addBtn);
+        btnSave = findViewById(R.id.btnTambah);
 
         progressDialog = new ProgressDialog(AddActivity.this);
         progressDialog.setTitle("Loading");
@@ -50,7 +50,7 @@ public class AddActivity extends AppCompatActivity {
         Intent intent = getIntent();
         if(intent!= null){
             id = intent.getStringExtra("id");
-            edtNama.setText(intent.getStringExtra("name"));
+            edtNama.setText(intent.getStringExtra("item"));
             edtHarga.setText(intent.getStringExtra("harga"));
         }
 
@@ -58,7 +58,7 @@ public class AddActivity extends AppCompatActivity {
 
     private void saveData(String name, String harga) {
         Map<String, Object> user =new HashMap<>();
-        user.put("name", name);
+        user.put("item", name);
         user.put("harga", harga);
 
         progressDialog.show();
